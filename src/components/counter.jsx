@@ -5,7 +5,7 @@ class Counter extends Component {
     count: 0,
   };
 
-  /*Варинат связки через обычную функцию
+  /*Варинат связки через обычную функцию 
   constructor() {
     super();
     this.handleIncrement = this.handleIncrement.bind(this);
@@ -18,6 +18,13 @@ class Counter extends Component {
     console.log(this.state.count);
     this.setState({ count: this.state.count + 1 });
   };
+  alertMin() {
+    if (window.confirm("Оставить комментарий?")) {
+      alert("Комментарий отправлен");
+    } else {
+      alert("Комментарий не оставлен");
+    }
+  }
   render() {
     return (
       <div>
@@ -28,6 +35,11 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <div className="container">
+          <button className="btn btn-secondary btn-sm" onClick={this.alertMin}>
+            Click
+          </button>
+        </div>
       </div>
     );
   }
