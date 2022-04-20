@@ -18,11 +18,15 @@ class Counter extends Component {
     this.setState({ count: this.state.count + 1 });
   };
   alertMin({ title }) {
-    if (window.confirm("Это то что передавали? " + title)) {
-      alert(title);
-    } else {
-      alert("Ответ неверный!");
-    }
+    let promise = new Promise(function (resolve, reject) {
+      setTimeout(() => reject(new Error(title)), 1000);
+    });
+
+    // reject запустит вторую функцию, переданную в .then
+    promise.then(
+      (result) => alert(result), // не будет запущена
+      (error) => alert(error) // выведет "Error: Whoops!" спустя одну секунду
+    );
   }
   render() {
     return (
