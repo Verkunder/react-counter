@@ -10,7 +10,6 @@ class Counter extends Component {
     super();
     this.handleIncrement = this.handleIncrement.bind(this);
     console.log(this);
-    this.state.count++;
   } */
   /* Вариант через стрелочную*/
   handleIncrement = () => {
@@ -27,14 +26,16 @@ class Counter extends Component {
   }
   render() {
     return (
-      <div>
-        <span className={this.getBadgeClass()}>{this.formatCount()}</span>
-        <button
-          onClick={this.handleIncrement}
-          className="btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
+      <div className="center">
+        <div className="container">
+          <span className={this.getBadgeClass()}>{this.formatCount()}</span>
+          <button
+            onClick={this.handleIncrement}
+            className="btn btn-secondary btn-sm"
+          >
+            Increment
+          </button>
+        </div>
         <div className="container">
           <button className="btn btn-secondary btn-sm" onClick={this.alertMin}>
             Click
