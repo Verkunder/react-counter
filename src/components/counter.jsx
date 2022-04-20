@@ -17,11 +17,11 @@ class Counter extends Component {
     console.log(this.state.count);
     this.setState({ count: this.state.count + 1 });
   };
-  alertMin() {
-    if (window.confirm("Оставить комментарий?")) {
-      alert("Комментарий отправлен");
+  alertMin({ title }) {
+    if (window.confirm("Это то что передавали? " + title)) {
+      alert(title);
     } else {
-      alert("Комментарий не оставлен");
+      alert("Ответ неверный!");
     }
   }
   render() {
@@ -37,7 +37,10 @@ class Counter extends Component {
           </button>
         </div>
         <div className="container">
-          <button className="btn btn-secondary btn-sm" onClick={this.alertMin}>
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={() => this.alertMin({ title: "Hello World!" })}
+          >
             Click
           </button>
         </div>
